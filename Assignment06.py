@@ -21,7 +21,7 @@ strChoice = ''  # Captures the user option selection
 strTask = ''  # Captures the user task data
 strPriority = ''  # Captures the user priority data
 strStatus = ''  # Captures the status of an processing functions
-userRemove = ''
+userRemove = '' # Captures the user task to remove
 
 # Processing  --------------------------------------------------------------- #
 class Processor:
