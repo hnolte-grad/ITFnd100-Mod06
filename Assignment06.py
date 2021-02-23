@@ -28,7 +28,7 @@ class Processor:
     """  Performs Processing tasks """
 
     @staticmethod
-    def read_data_from_file(file_name, list_of_rows):
+    def read_data_from_file(file_name, list_of_rows): # use (strFileName, lstTable) in main
         """ Reads data from a file into a list of dictionary rows
 
         :param file_name: (string) with name of file:
@@ -42,27 +42,27 @@ class Processor:
             row = {"Task": task.strip(), "Priority": priority.strip()}
             list_of_rows.append(row)
         file.close()
-        return list_of_rows, 'Success'
+        return list_of_rows, 'Success' # output: file data
 
     @staticmethod
-    def add_data_to_list(task, priority, list_of_rows):
+    def add_data_to_list(task, priority, list_of_rows): # (strTask, strPriority, and lstTable) global arg in main
         dicRow = {'Task': task.lower(), 'Priority': priority}
         list_of_rows.append(dicRow)
-        return list_of_rows, 'Success'
+        return list_of_rows, 'Success' # returns updated table
 
     @staticmethod
-    def remove_data_from_list(task, list_of_rows):
+    def remove_data_from_list(task, list_of_rows): # (userRemove, lstTable) global arg in main
         for item in list_of_rows:
             if item['Task'] == task.lower():
                 list_of_rows.remove(item)
-        return list_of_rows, 'Success'
+        return list_of_rows, 'Success' # returns table with task removed
 
     @staticmethod
-    def write_data_to_file(file_name, list_of_rows):
-        file = open(file_name, 'a')
+    def write_data_to_file(file_name, list_of_rows):  # (strFileName, lstTable) global arg in main
+        file = open(file_name, 'w')
         for item in list_of_rows:
             file.write(item['Task'] + ', ' + item['Priority'] + '\n')
-        file.close()
+        file.close()    
 
 # Presentation (Input/Output)  -------------------------------------------- #
 class IO:
@@ -95,7 +95,7 @@ class IO:
         return choice
 
     @staticmethod
-    def print_current_Tasks_in_list(list_of_rows):
+    def print_current_Tasks_in_list(list_of_rows): # (lstTable) global arg in main
         """ Shows the current Tasks in the list of dictionaries rows
 
         :param list_of_rows: (list) of rows you want to display
@@ -113,7 +113,7 @@ class IO:
 
         :return: string
         """
-        y_n = str(input(message)).strip().lower()
+        y_n = str(input(message)).strip().lower() # designated a var (y_n) so value is actually returned
         return y_n
 
     @staticmethod
